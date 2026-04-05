@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product management</title>
+    <link rel="icon" href="./assets/img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <main class="app-main">
+      <div class="app-container">
+        <header class="page-header">
+          <h1 class="page-header__title">Product management</h1>
+          <p class="page-header__subtitle">
+            Add, search, and organize your catalog with a clear, simple layout.
+          </p>
+        </header>
+
+        <div class="layout-stack layout-split">
+          <section class="surface-card surface-card--form" aria-labelledby="form-heading">
+            <span id="form-heading" class="section-label">New product</span>
+            <form>
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="productNameInput"
+                  placeholder="type product name"
+                  oninput="validate(productNameRegex, productNameInput)"
+                />
+                <p class="error d-none">
+                  *The product name should be start with capital letter followed by
+                  3 letters
+                </p>
+                <label for="productNameInput">Name</label>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="productCategoryInput"
+                  placeholder="choose the category"
+                  oninput="validate(productCategoryRegex, productCategoryInput)"
+                />
+                <p class="error d-none">
+                  *The product category should be start with capital letter followed
+                  by 3 letters
+                </p>
+                <label for="productCategoryInput">Category</label>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="productPriceInput"
+                  placeholder="type the price"
+                  oninput="validate(productPriceRegex, productPriceInput)"
+                />
+                <p class="error d-none">*The product price should be more than 0</p>
+                <label for="productPriceInput">Price</label>
+              </div>
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="productDescriptionInput"
+                  oninput="
+                validate(productDescriptionRegex, productDescriptionInput)
+              "
+                ></textarea>
+                <p class="error d-none">
+                  *The product description should be more than 25 letter and start
+                  with capital letter
+                </p>
+                <label for="productDescriptionInput">Description</label>
+              </div>
+              <div class="file-field">
+                <label class="form-label" for="productImageInput">Product image</label>
+                <input
+                  class="form-control"
+                  type="file"
+                  id="productImageInput"
+                  accept="image/*"
+                />
+              </div>
+              <div class="btn-submit-wrap">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="submitProductBtn"
+                  onclick="addProduct()"
+                >
+                  Add product
+                </button>
+              </div>
+              <div class="search-wrap">
+                <label class="visually-hidden" for="searchInput">Search products</label>
+                <div class="input-group mb-0 w-75 mx-auto">
+                  <span class="input-group-text" id="basic-addon1" aria-hidden="true">
+                    <i class="fa-brands fa-searchengin" title="Search"></i>
+                  </span>
+                  <input
+                    type="search"
+                    class="form-control"
+                    id="searchInput"
+                    placeholder="Search products…"
+                    autocomplete="off"
+                    aria-describedby="basic-addon1"
+                    oninput="searchProducts()"
+                  />
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <section class="products-section" aria-labelledby="products-heading">
+            <span id="products-heading" class="section-label">Your products</span>
+            <div class="row pb-5" id="productsContainers"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
