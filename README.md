@@ -16,3 +16,5 @@ A fully functional **CRUD** application to manage products efficiently. This pro
 - **Vanilla JavaScript** (ES6+)
 - **Google Fonts**
 
+## 🌐 Live Demo
+[https://mokbel01.github.io/crud-product-management/]
